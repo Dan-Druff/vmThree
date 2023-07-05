@@ -11,7 +11,7 @@ const AnimatedBox : React.FC<Props> = ({isTesting}) => {
     // if(isTesting){
     //     useHelper(meshRef,BoxHelper, "blue");
     // }
-    useHelper(meshRef,BoxHelper, "blue");
+    // useHelper(meshRef,BoxHelper, "blue");
     // {isTesting ? console.log(`TESTING TREU`) : console.log(`testing false`)}
     // useHelper(meshRef,BoxHelper, "blue");
     useFrame(() => {
