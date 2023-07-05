@@ -8,9 +8,10 @@ type Props = {
 const AnimatedBox : React.FC<Props> = ({isTesting}) => {
     const meshRef = useRef<THREE.Mesh>(null);
     // {isTesting ? useHelper(meshRef,BoxHelper, "blue") : null}
-    if(isTesting){
-        useHelper(meshRef,BoxHelper, "blue");
-    }
+    // if(isTesting){
+    //     useHelper(meshRef,BoxHelper, "blue");
+    // }
+    useHelper(meshRef,BoxHelper, "blue");
     // {isTesting ? console.log(`TESTING TREU`) : console.log(`testing false`)}
     // useHelper(meshRef,BoxHelper, "blue");
     useFrame(() => {
