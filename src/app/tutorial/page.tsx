@@ -4,8 +4,9 @@ import { Canvas, useLoader } from "@react-three/fiber"
 import { Suspense } from "react"
 import { styled } from "styled-components"
 // import { GLTFLoader } from "three-stdLib"
-import styles from './page.module.css';
+import styles from '../page.module.css';
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
+import { VRButton, XR, Controllers, Hands } from "@react-three/xr";
 
 export default function TutorialPage() {
 
@@ -22,13 +23,15 @@ export default function TutorialPage() {
 
 
   return (
-    <main>
-      <ThreeDContainer>
-       
+    <div className={styles.container}>
+      {/* <ThreeDContainer> */}
+      <VRButton />
 
-      <h2>HELLO?</h2>
+      
         <Canvas shadows dpr={[1,2]} camera={{position:[0,0,4], fov:50}}>
-
+        <XR>
+        <Controllers />
+            <Hands />
           <ambientLight intensity={0.7} />
           <spotLight  intensity={0.5} angle={0.1} penumbra={2} position={[10,15,10]} castShadow/>
           
@@ -38,10 +41,11 @@ export default function TutorialPage() {
           </Suspense>
         
           <OrbitControls autoRotate/>
+          </XR>
         </Canvas>
       
-      </ThreeDContainer>
-    </main>
+      {/* </ThreeDContainer> */}
+    </div>
   )
 }
 const ThreeDContainer = styled.div`
