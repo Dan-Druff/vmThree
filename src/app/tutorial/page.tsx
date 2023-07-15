@@ -13,7 +13,11 @@ export default function TutorialPage() {
   const Model = () => {
     // const gltf = useLoader(GLTFLoader,'/threeD/scene.gltf')
     const gltf = useLoader(GLTFLoader,'/suzy/suzy.gltf')
-
+    gltf.scene.traverse((object) => {
+        if(object.isMesh){
+            object.castShadow = true;
+        }
+    })
     return (
       <>
         <primitive dispose={null} object={gltf.scene} scale={0.7}/>
@@ -39,7 +43,11 @@ export default function TutorialPage() {
             <Model />
             <Environment preset="apartment" />
           </Suspense>
-        
+          <mesh rotation-x={Math.PI * - 0.5} receiveShadow>
+            {/* <planeBufferGeometry args={[5,5]} /> */}
+            <planeGeometry args={[500,500]} />
+            <meshStandardMaterial color={"#458745"} />
+        </mesh>
           <OrbitControls autoRotate/>
           </XR>
         </Canvas>
